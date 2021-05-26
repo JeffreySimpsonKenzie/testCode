@@ -1,0 +1,15 @@
+body {
+  background: rgb(20, 20, 20);
+  color: whitesmoke;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+p {
+  width: 50%;
+}
+
+a {
+  color: yellow;
+}
+a:hover {
+  color: rgb(31, 232, 247);
+}
