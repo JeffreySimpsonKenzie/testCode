@@ -1,5 +1,7 @@
 console.log("Well look at that, this is showing up in your console!");
 
+// REMEMBER to save to see any changes on the browser!
+
 /* 
 Add quotes to a selection of Code.
 1. Select/Highlight a section of code.
