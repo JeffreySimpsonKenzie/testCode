@@ -1,13 +1,22 @@
+/* This adds styling to all code inside the <body> tags */
 body {
   background: rgb(20, 20, 20);
   color: whitesmoke;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   padding: 10px;
 }
+
+/* This adds styling to all <h1> tags. */
 h1 {
   color: rgb(138, 206, 106);
 }
 
+/* # is an id selector and adds styling to all tags with this id name */
+#imgID {
+  width: 100px;
+}
+
+/* . is a class selector and adds styling to all tags with this class name */
 .infoBox {
   border-radius: 5px;
   padding: 5px;
@@ -33,8 +42,4 @@ a {
 }
 a:hover {
   color: rgb(31, 232, 247);
-}
-
-#imgID {
-  width: 100px;
 }
