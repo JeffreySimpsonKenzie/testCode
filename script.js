@@ -47,3 +47,62 @@ console.log(thisVariable);
 thisVariable = "Now I'm a different string!";
 
 console.log(thisVariable);
+
+function capitalize(word) {
+  return `${word[0].toUpperCase()}${word.slice(1)}`;
+}
+let element = document.querySelector("h1");
+element.innerHTML = "HELLO <br> I've changed it";
+element.classList.add("header-tag");
+
+let paragraphElement = document.querySelector("#paragraph");
+
+let newElement = document.createElement("div");
+newElement.innerHTML = "<strong>Did</strong> it work?";
+newElement.style.color = "pink";
+paragraphElement.append(newElement);
+
+function createPokemon(pokeName, nickname) {
+  let pokemonList = document.querySelector(".pokemonList");
+
+  let pokemonDiv = document.createElement("div");
+  pokemonDiv.classList.add("pokemon");
+  pokemonDiv.classList.add(pokeName);
+
+  let title = document.createElement("h4");
+  let sprite = document.createElement("img");
+  let type = document.createElement("p");
+
+  fetch(`https://pokeapi.co/api/v2/pokemon/${pokeName}`)
+    .then((response) => response.json())
+    .then(function (pokemon) {
+      console.log(pokemon);
+      sprite.setAttribute("src", pokemon.sprites.front_default);
+      title.innerHTML = `${capitalize(pokemon.name)} <br> "${nickname}"`;
+      type.innerHTML =
+        pokemon.types.length > 1
+          ? `${capitalize(pokemon.types[0].type.name)}/${capitalize(
+              pokemon.types[1].type.name
+            )}`
+          : `${capitalize(pokemon.types[0].type.name)}`;
+    });
+  pokemonDiv.append(title, sprite, type);
+  pokemonList.append(pokemonDiv);
+}
+let myFavPokemon = [
+  { name: "scizor", nickname: "Pincher" },
+  { name: "hitmontop", nickname: "Twist" },
+  { name: "haunter", nickname: "Spirit" },
+  { name: "lucario", nickname: "Anubis" },
+  { name: "flygon", nickname: "Draco" },
+  { name: "typhlosion", nickname: "Burn Boy" },
+  { name: "articuno", nickname: "Evie" },
+];
+
+myFavPokemon.map((pokemon) => createPokemon(pokemon.name, pokemon.nickname));
+// createPokemon("scizor", "Pincher");
+// createPokemon("hitmontop", "Twist");
+// createPokemon("lucario", "Anubis");
+// createPokemon("haunter", "Spirit");
+// createPokemon("quilava", "Burn Boy");
+// createPokemon("flygon", "Draco");
